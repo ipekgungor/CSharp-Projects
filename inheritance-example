@@ -1,0 +1,59 @@
+using System;
+
+namespace ipekgungor_quiz1
+{
+    class Quiz
+    {
+        class Circle
+        {
+            protected double radius;
+            protected string color;
+
+            public Circle()
+            {
+                radius = 1.0;
+                color = "red";
+            }
+
+            public Circle(double r, string c)
+            {
+                radius = r;
+                color = c;
+            }
+
+            public double GetArea()
+            {
+                return Math.PI * radius * radius;
+            }
+
+        }
+
+        class Cylinder : Circle
+        {
+            private double height;
+
+            public Cylinder()
+            {
+                height = 1.0;
+            }
+
+            public Cylinder(double r, string c, double h) : base(r, c)
+            {
+                height = h;
+            }
+
+            public double GetVolume()
+            {
+                return Math.PI * radius * radius * height;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Cylinder c1 = new Cylinder();
+            Cylinder c2 = new Cylinder(2.0, "yellow", 4.0);
+            Console.WriteLine("The area of the first object is " + c1.GetArea() + " and the volume of the first object is " + c1.GetVolume());
+            Console.WriteLine("The area of the second object is " + c2.GetArea() + " and the volume of the second object is " + c2.GetVolume());
+        }
+    }
+}
